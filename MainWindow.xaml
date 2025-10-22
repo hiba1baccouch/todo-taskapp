@@ -298,7 +298,7 @@
                                                    Foreground="{DynamicResource TextSecondary}" VerticalAlignment="Center"/>
                                         <Button Content="Sync now" Background="Transparent" BorderThickness="0" 
                                                 FontSize="12" FontWeight="Medium" Foreground="{DynamicResource Accent}" Margin="4,0,0,0"
-                                                Cursor="Hand"/>
+                                                Cursor="Hand" Command="{Binding OpenSyncModalCommand}"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Grid>
@@ -315,7 +315,52 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
-                                     Width="240" Style="{StaticResource SearchFieldStyle}" Margin="0,0,12,0"/>
+                                     Width="240" Height="44"
+                                     Background="{DynamicResource Surface}" 
+                                     Foreground="{DynamicResource TextPrimary}"
+                                     BorderBrush="{DynamicResource Border}" 
+                                     BorderThickness="1" Margin="0,0,12,0">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="TextBox">
+                                                    <Border Background="{TemplateBinding Background}" 
+                                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                                            CornerRadius="22">
+                                                        <Grid>
+                                                            <Viewbox Width="18" Height="18" HorizontalAlignment="Left" Margin="14,0,0,0">
+                                                                <Canvas Width="24" Height="24">
+                                                                    <Path Data="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.35-4.35" 
+                                                                          Stroke="{DynamicResource TextMuted}" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Fill="Transparent"/>
+                                                                </Canvas>
+                                                            </Viewbox>
+                                                            <TextBlock x:Name="PlaceholderText" 
+                                                                       Text="Search task" 
+                                                                       Foreground="{DynamicResource TextMuted}" 
+                                                                       FontSize="14"
+                                                                       Margin="40,0,0,0"
+                                                                       VerticalAlignment="Center"
+                                                                       IsHitTestVisible="False"
+                                                                       Visibility="Collapsed"/>
+                                                            <ScrollViewer x:Name="PART_ContentHost" Margin="40,12,12,12" VerticalAlignment="Center" Focusable="False"/>
+                                                        </Grid>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="Text" Value="">
+                                                            <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                                                        </Trigger>
+                                                        <Trigger Property="Text" Value="{x:Null}">
+                                                            <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
                             <Button Width="44" Height="44" Margin="0,0,12,0" 
                                     Background="{DynamicResource Surface}" 
                                     BorderBrush="{DynamicResource Border}" 
@@ -580,11 +625,11 @@
 
         <!-- Sync Calendar Modal -->
         <Grid Grid.RowSpan="2" Background="#70000000" Visibility="{Binding IsSyncModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
-            <Border Background="{DynamicResource Surface}" Width="600" Height="200" CornerRadius="20" 
+            <Border Background="{DynamicResource Surface}" Width="360" Height="280" CornerRadius="20" 
                     BorderBrush="{DynamicResource Border}" BorderThickness="1" Padding="32">
                 <StackPanel>
                     <Grid Margin="0,0,0,24">
-                        <TextBlock Text="Paste your calendar url here:" FontSize="16" FontWeight="Medium" 
+                        <TextBlock Text="Sync Settings" FontSize="18" FontWeight="SemiBold" 
                                    Foreground="{DynamicResource TextPrimary}"/>
                         <Button Width="32" Height="32" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0"
                                 Command="{Binding CloseSyncModalCommand}">
@@ -596,66 +641,29 @@
                         </Button>
                     </Grid>
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <!-- Pull mouse checkbox -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                            <CheckBox IsChecked="True" VerticalAlignment="Center" Margin="0,0,12,0"/>
+                            <TextBlock Text="Pull mouse" FontSize="16" Foreground="{DynamicResource TextPrimary}" VerticalAlignment="Center"/>
+                        </StackPanel>
                         
-                        <TextBox Grid.Column="0" Text="{Binding SyncUrl, UpdateSourceTrigger=PropertyChanged}" 
-                                 Height="44" Padding="16,12" FontSize="14" Margin="0,0,16,0"
+                        <!-- Drag window checkbox -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,24">
+                            <CheckBox IsChecked="True" VerticalAlignment="Center" Margin="0,0,12,0"/>
+                            <TextBlock Text="Drag window" FontSize="16" Foreground="{DynamicResource TextPrimary}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        
+                        <!-- URL Input Section -->
+                        <TextBlock Text="Calendar URL (optional)" FontSize="13" Foreground="{DynamicResource TextSecondary}" Margin="0,0,0,8"/>
+                        <TextBox Text="{Binding SyncUrl, UpdateSourceTrigger=PropertyChanged}" 
+                                 Height="44" Margin="0,0,0,16"
                                  Background="{DynamicResource Surface}" 
                                  Foreground="{DynamicResource TextPrimary}"
-                                 BorderBrush="{DynamicResource Border}" BorderThickness="1"
-                                 FocusVisualStyle="{x:Null}">
-                            <TextBox.Style>
-                                <Style TargetType="TextBox">
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="TextBox">
-                                                <Border Background="{TemplateBinding Background}" 
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                                        CornerRadius="12">
-                                                    <Grid>
-                                                        <TextBlock x:Name="PlaceholderText" 
-                                                                   Text="https://calendar.google.com/..." 
-                                                                   Foreground="{DynamicResource TextMuted}" 
-                                                                   FontSize="14"
-                                                                   Margin="16,0,0,0"
-                                                                   VerticalAlignment="Center"
-                                                                   IsHitTestVisible="False"
-                                                                   Visibility="Collapsed"/>
-                                                        <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" VerticalAlignment="Center" Focusable="False"/>
-                                                    </Grid>
-                                                </Border>
-                                                <ControlTemplate.Triggers>
-                                                    <Trigger Property="IsFocused" Value="False">
-                                                        <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                                                    </Trigger>
-                                                    <MultiTrigger>
-                                                        <MultiTrigger.Conditions>
-                                                            <Condition Property="IsFocused" Value="False"/>
-                                                            <Condition Property="Text" Value=""/>
-                                                        </MultiTrigger.Conditions>
-                                                        <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                                                    </MultiTrigger>
-                                                    <Trigger Property="Text" Value="">
-                                                        <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                                                    </Trigger>
-                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text.Length}" Value="0">
-                                                        <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </ControlTemplate.Triggers>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </TextBox.Style>
-                        </TextBox>
+                                 BorderBrush="{DynamicResource Border}" BorderThickness="1"/>
                         
-                        <Button Grid.Column="1" Content="Import" Command="{Binding ImportSyncUrlCommand}" 
-                                Width="140" Height="44" Background="{DynamicResource ButtonGradient}" 
+                        <Button Content="Apply Settings" Command="{Binding ImportSyncUrlCommand}" 
+                                Height="44" Background="{DynamicResource ButtonGradient}" 
                                 Foreground="White" FontWeight="SemiBold" FontSize="14"
                                 BorderThickness="0" Cursor="Hand">
                             <Button.Style>
@@ -675,198 +683,9 @@
                                 </Style>
                             </Button.Style>
                         </Button>
-                    </Grid>
+                    </StackPanel>
                 </StackPanel>
             </Border>
         </Grid>
     </Grid>
-    
-    <!-- Window Resources - Styles matching Electron app exactly -->
-    <Window.Resources>
-        
-        <!-- Window Button Style -->
-        <Style x:Key="WindowButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Foreground" Value="{DynamicResource TextSecondary}"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Cursor" Value="Hand"/>
-        </Style>
-        
-        <!-- Timer Circle Style -->
-        <Style x:Key="TimerCircleStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                                CornerRadius="27.5" 
-                                Width="{TemplateBinding Width}" 
-                                Height="{TemplateBinding Height}">
-                            <Border.Effect>
-                                <DropShadowEffect Color="#A855F7" BlurRadius="20" ShadowDepth="9" Opacity="0"/>
-                            </Border.Effect>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="RenderTransform">
-                                    <Setter.Value>
-                                        <TranslateTransform Y="-2"/>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        
-        <!-- Nav Pill Style -->
-        <Style x:Key="NavPillStyle" TargetType="Button">
-            <Setter Property="Background" Value="{DynamicResource Surface}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource Border}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Foreground" Value="{DynamicResource TextPrimary}"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="8"
-                                Width="{TemplateBinding Width}" 
-                                Height="{TemplateBinding Height}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        
-        <!-- Calendar Day Style -->
-        <Style x:Key="CalendarDayStyle" TargetType="Button">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Foreground" Value="{DynamicResource TextPrimary}"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="FontWeight" Value="Normal"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border" 
-                                Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}" 
-                                CornerRadius="14" 
-                                Width="28" Height="28">
-                            <TextBlock x:Name="dayText"
-                                       Text="{TemplateBinding Content}" 
-                                       Foreground="{TemplateBinding Foreground}" 
-                                       FontSize="{TemplateBinding FontSize}"
-                                       FontWeight="{TemplateBinding FontWeight}"
-                                       HorizontalAlignment="Center" 
-                                       VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="{DynamicResource AccentSoft}"/>
-                            </Trigger>
-                            <DataTrigger Binding="{Binding Tag.IsSelected, RelativeSource={RelativeSource Self}}" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="{DynamicResource Accent}"/>
-                                <Setter Property="Foreground" Value="White"/>
-                                <Setter Property="FontWeight" Value="SemiBold"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding Tag.IsToday, RelativeSource={RelativeSource Self}}" Value="True">
-                                <Setter Property="FontWeight" Value="SemiBold"/>
-                            </DataTrigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        
-        <!-- Primary Button Style -->
-        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="{DynamicResource ButtonGradient}"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Padding" Value="24,14"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                                CornerRadius="14" 
-                                Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        
-        <!-- Search Field Style -->
-        <Style x:Key="SearchFieldStyle" TargetType="TextBox">
-            <Setter Property="Background" Value="{DynamicResource Surface}"/>
-            <Setter Property="BorderBrush" Value="{DynamicResource Border}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="40,12,12,12"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Height" Value="44"/>
-            <Setter Property="Foreground" Value="{DynamicResource TextPrimary}"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="22">
-                            <Grid>
-                                <Viewbox Width="18" Height="18" HorizontalAlignment="Left" Margin="14,0,0,0">
-                                    <Canvas Width="24" Height="24">
-                                        <Path Data="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.35-4.35" 
-                                              Stroke="{DynamicResource TextMuted}" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeLineJoin="Round" Fill="Transparent"/>
-                                    </Canvas>
-                                </Viewbox>
-                                <TextBlock x:Name="PlaceholderText" 
-                                           Text="Search task" 
-                                           Foreground="{DynamicResource TextMuted}" 
-                                           FontSize="14"
-                                           Margin="40,0,0,0"
-                                           VerticalAlignment="Center"
-                                           IsHitTestVisible="False"/>
-                                <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
-                            </Grid>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="Text" Value="">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                            <Trigger Property="Text" Value="{x:Null}">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}}" Value="">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="Text" Value=""/>
-                                </MultiTrigger.Conditions>
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </MultiTrigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="Text" Value="">
-                    <!-- Placeholder visible when empty -->
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-        
-    </Window.Resources>
 </Window>
