@@ -5,6 +5,7 @@
         Title="Desktop Task Aid" 
         Height="1140" Width="1440"
         WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         WindowStyle="ThreeDBorderWindow"
         Background="{DynamicResource BgLight}"
         FontFamily="Segoe UI, Arial">
