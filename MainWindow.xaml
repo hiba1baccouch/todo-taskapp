@@ -95,12 +95,33 @@
                                     <!-- Timer Controls -->
                                     <StackPanel Orientation="Horizontal">
                                         <Button Width="55" Height="55" Command="{Binding ToggleTimerCommand}" 
-                                                Background="{DynamicResource ButtonGradient}" Style="{StaticResource TimerCircleStyle}" Margin="0,0,8,0">
-                                            <Viewbox Width="24" Height="24">
-                                                <Canvas Width="24" Height="24">
-                                                    <Path Data="M8 5v14l11-7z" Fill="White"/>
-                                                </Canvas>
-                                            </Viewbox>
+                                                Background="{DynamicResource ButtonGradient}" Margin="0,0,8,0">
+                                            <Button.Style>
+                                                <Style TargetType="Button" BasedOn="{StaticResource TimerCircleStyle}">
+                                                    <Setter Property="Content">
+                                                        <Setter.Value>
+                                                            <Viewbox Width="24" Height="24">
+                                                                <Canvas Width="24" Height="24">
+                                                                    <Path Data="M8 5v14l11-7z" Fill="White"/>
+                                                                </Canvas>
+                                                            </Viewbox>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding TimerRunning}" Value="True">
+                                                            <Setter Property="Content">
+                                                                <Setter.Value>
+                                                                    <Viewbox Width="24" Height="24">
+                                                                        <Canvas Width="24" Height="24">
+                                                                            <Path Data="M6 4h4v16H6V4zm8 0h4v16h-4V4z" Fill="White"/>
+                                                                        </Canvas>
+                                                                    </Viewbox>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
                                         </Button>
                                         <Button Width="55" Height="55" Command="{Binding ResetTimerCommand}" 
                                                 Background="{DynamicResource ButtonGradient}" Style="{StaticResource TimerCircleStyle}">
@@ -469,6 +490,33 @@
                                         <TextBlock Text="Rows per page:" FontSize="12" Foreground="{DynamicResource TextSecondary}" 
                                                    VerticalAlignment="Center" Margin="0,0,12,0"/>
                                         <ComboBox SelectedValue="{Binding PageSize}" Width="60" Margin="0,0,12,0">
+                                            <ComboBox.Resources>
+                                                <Style TargetType="ComboBoxItem">
+                                                    <Setter Property="Background" Value="{StaticResource Surface}"/>
+                                                    <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+                                                    <Setter Property="Padding" Value="8,6"/>
+                                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ComboBoxItem">
+                                                                <Border x:Name="Bd" 
+                                                                        Background="{TemplateBinding Background}"
+                                                                        Padding="{TemplateBinding Padding}">
+                                                                    <ContentPresenter/>
+                                                                </Border>
+                                                                <ControlTemplate.Triggers>
+                                                                    <Trigger Property="IsHighlighted" Value="True">
+                                                                        <Setter TargetName="Bd" Property="Background" Value="{StaticResource Divider}"/>
+                                                                    </Trigger>
+                                                                    <Trigger Property="IsSelected" Value="True">
+                                                                        <Setter TargetName="Bd" Property="Background" Value="Transparent"/>
+                                                                    </Trigger>
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ComboBox.Resources>
                                             <ComboBoxItem Content="10" IsSelected="True"/>
                                             <ComboBoxItem Content="25"/>
                                             <ComboBoxItem Content="50"/>
@@ -534,6 +582,27 @@
             <StackPanel VerticalAlignment="Center">
                 <Button Width="48" Height="48" Command="{Binding ToggleThemeCommand}" 
                         Background="Transparent" BorderThickness="0" ToolTip="Toggle theme">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="hoverBorder" Background="{TemplateBinding Background}" CornerRadius="24">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="hoverBorder" Property="Background" Value="{DynamicResource AccentSoft}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
                     <Viewbox Width="20" Height="20">
                         <Canvas Width="24" Height="24">
                             <Path Data="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" 
@@ -544,6 +613,27 @@
                 <Border Height="1" Background="{DynamicResource Border}" Margin="12,0"/>
                 <Button Width="48" Height="47" Background="Transparent" BorderThickness="0" 
                         Command="{Binding OpenSyncModalCommand}" ToolTip="Sync Calendar">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="hoverBorder" Background="{TemplateBinding Background}" CornerRadius="24">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="hoverBorder" Property="Background" Value="{DynamicResource AccentSoft}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
                     <Viewbox Width="20" Height="20">
                         <Canvas Width="24" Height="24">
                             <Path Data="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z" 
