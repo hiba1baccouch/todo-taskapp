@@ -5,8 +5,7 @@
         Title="Desktop Task Aid" 
         Height="1140" Width="1440"
         WindowStartupLocation="CenterScreen"
-        WindowStyle="SingleBorderWindow"
-        ResizeMode="CanResize"
+        WindowStyle="ThreeDBorderWindow"
         Background="{DynamicResource BgLight}"
         FontFamily="Segoe UI, Arial">
 
@@ -463,7 +462,7 @@
                             <Border Grid.Row="1" Background="{DynamicResource Surface}" BorderBrush="{DynamicResource Divider}" 
                                     BorderThickness="0,1,0,0" Padding="24,16">
                                 <Grid>
-                                    <TextBlock Text="{Binding PaginationText}" FontSize="12" Foreground="{DynamicResource AccentStrong}" 
+                                    <TextBlock Text="{Binding PaginationText}" FontSize="12" Foreground="{DynamicResource TextSecondary}" 
                                                FontWeight="Medium" VerticalAlignment="Center"/>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                         <TextBlock Text="Rows per page:" FontSize="12" Foreground="{DynamicResource TextSecondary}" 
