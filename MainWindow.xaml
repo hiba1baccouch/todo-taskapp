@@ -609,7 +609,27 @@
 
                             <StackPanel Grid.Column="2">
                                 <TextBlock Text="Due time" FontSize="13" Foreground="{DynamicResource TextSecondary}" Margin="0,0,0,8"/>
-                                <TextBox Height="44" Text="09:00"/>
+                                <TextBox Height="44" Text="09:00"
+                                         Background="{DynamicResource Surface}" 
+                                         Foreground="{DynamicResource TextPrimary}"
+                                         BorderBrush="{DynamicResource Border}" BorderThickness="1">
+                                    <TextBox.Style>
+                                        <Style TargetType="TextBox">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="TextBox">
+                                                        <Border Background="{TemplateBinding Background}" 
+                                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                                CornerRadius="12" Padding="14">
+                                                            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" Focusable="False"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </TextBox.Style>
+                                </TextBox>
                             </StackPanel>
                         </Grid>
 
@@ -645,7 +665,7 @@
 
         <!-- Sync Settings Modal (Star Button) -->
         <Grid Grid.RowSpan="2" Background="#70000000" Visibility="{Binding IsSyncModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
-            <Border Background="{DynamicResource Surface}" Width="360" Height="240" CornerRadius="20" 
+            <Border Background="{DynamicResource Surface}" Width="360" Height="300" CornerRadius="20" 
                     BorderBrush="{DynamicResource Border}" BorderThickness="1" Padding="32">
                 <StackPanel>
                     <Grid Margin="0,0,0,24">
@@ -702,7 +722,7 @@
 
         <!-- Calendar URL Modal (Sync Now Button) -->
         <Grid Grid.RowSpan="2" Background="#70000000" Visibility="{Binding IsCalendarUrlModalOpen, Converter={StaticResource BoolToVisibilityConverter}}">
-            <Border Background="{DynamicResource Surface}" Width="500" Height="220" CornerRadius="20" 
+            <Border Background="{DynamicResource Surface}" Width="500" Height="250" CornerRadius="20" 
                     BorderBrush="{DynamicResource Border}" BorderThickness="1" Padding="32">
                 <StackPanel>
                     <Grid Margin="0,0,0,24">
@@ -725,7 +745,7 @@
                         </Grid.ColumnDefinitions>
                         
                         <TextBox Grid.Column="0" Text="{Binding SyncUrl, UpdateSourceTrigger=PropertyChanged}" 
-                                 Height="44" Padding="16,12" FontSize="14" Margin="0,0,16,0"
+                                 Height="44" FontSize="14" Margin="0,0,16,0"
                                  Background="{DynamicResource Surface}" 
                                  Foreground="{DynamicResource TextPrimary}"
                                  BorderBrush="{DynamicResource Border}" BorderThickness="1">
@@ -737,17 +757,16 @@
                                                 <Border Background="{TemplateBinding Background}" 
                                                         BorderBrush="{TemplateBinding BorderBrush}"
                                                         BorderThickness="{TemplateBinding BorderThickness}"
-                                                        CornerRadius="12">
+                                                        CornerRadius="12" Padding="14">
                                                     <Grid>
                                                         <TextBlock x:Name="PlaceholderText" 
                                                                    Text="https://calendar.google.com/..." 
                                                                    Foreground="{DynamicResource TextMuted}" 
                                                                    FontSize="14"
-                                                                   Margin="16,0,0,0"
                                                                    VerticalAlignment="Center"
                                                                    IsHitTestVisible="False"
                                                                    Visibility="Collapsed"/>
-                                                        <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" VerticalAlignment="Center" Focusable="False"/>
+                                                        <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" Focusable="False"/>
                                                     </Grid>
                                                 </Border>
                                                 <ControlTemplate.Triggers>
