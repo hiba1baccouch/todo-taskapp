@@ -1,0 +1,269 @@
+// Welcome back!
+color: '#151B26', fontSize: 36, fontFamily: 'Mulish', fontWeight: '600', lineHeight: 54, wordWrap: 'break-word'
+---
+// Organize your tasks, keep your mind clean <br/>and boost your 
+color: '#151B26', fontSize: 16, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 24, wordWrap: 'break-word'
+---
+// productivity
+color: '#151B26', fontSize: 16, fontFamily: 'Mulish', fontWeight: '400', textDecoration: 'underline', lineHeight: 24, wordWrap: 'break-word'
+---
+// !
+color: '#151B26', fontSize: 16, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 24, wordWrap: 'break-word'
+---
+// Upcoming task name
+color: '#151B26', fontSize: 16, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Start Timer
+color: '#151B26', fontSize: 16, fontFamily: 'Mulish', fontWeight: '500', lineHeight: 20, wordWrap: 'break-word'
+---
+// 1:30:00 Done Today
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// October 2025
+color: '#151B26', fontSize: 16, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// S
+color: '#6F7782', fontSize: 12, fontFamily: 'DM Sans', fontWeight: '400', wordWrap: 'break-word'
+---
+// u
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// Mo
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// Tu
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// We
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// Th
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// Fr
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// Sa
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 29
+color: '#AEB9E1', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 30
+color: '#AEB9E1', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 1
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 2
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 3
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 4
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 5
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 6
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 7
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 8
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 9
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 10
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 11
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 12
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 13
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 14
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 15
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 16
+color: 'white', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 17
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 18
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 19
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 20
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 21
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 22
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 23
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 24
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 25
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 26
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 27
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 28
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 29
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 30
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 31
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 1
+color: '#AEB9E1', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 2
+color: '#AEB9E1', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// Wednesay, Oct 16
+color: '#151B26', fontSize: 24, fontFamily: 'Mulish', fontWeight: '400', textDecoration: 'underline', wordWrap: 'break-word'
+---
+// 3 Tasks planned
+color: '#151B26', fontSize: 16, fontFamily: 'Mulish', fontWeight: '400', wordWrap: 'break-word'
+---
+// 1
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '600', lineHeight: 21, wordWrap: 'break-word'
+---
+// Understanding the tools in Figma
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 21, wordWrap: 'break-word'
+---
+// 2
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '600', lineHeight: 21, wordWrap: 'break-word'
+---
+// Understanding the tools in Figma
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 21, wordWrap: 'break-word'
+---
+// 3
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '600', lineHeight: 21, wordWrap: 'break-word'
+---
+// Understanding the tools in Figma
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 21, wordWrap: 'break-word'
+---
+// Already using another calendar?
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+//  
+color: '#CB3CFF', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Sync now
+color: '#CB3CFF', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', textDecoration: 'underline', lineHeight: 20, wordWrap: 'break-word'
+---
+// Tasks List
+color: '#151B26', fontSize: 36, fontFamily: 'Mulish', fontWeight: '600', lineHeight: 20, wordWrap: 'break-word'
+---
+// Search task
+color: '#56555C', fontSize: 14, fontFamily: 'Mulish', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'
+---
+// All Tasks
+color: '#151B26', fontSize: 26, fontFamily: 'Mulish', fontWeight: '500', lineHeight: 20, wordWrap: 'break-word'
+---
+// 1 - 10
+color: '#CB3CFF', fontSize: 14, fontFamily: 'Mona-Sans', fontWeight: '500', lineHeight: 14, wordWrap: 'break-word'
+---
+//  of 256
+color: '#AEB9E1', fontSize: 14, fontFamily: 'Mona-Sans', fontWeight: '500', lineHeight: 14, wordWrap: 'break-word'
+---
+// Task name
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Due date
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Due time
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Reminders
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Task name
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// 15-01-2025
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// 9 PM
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Monday, Jan 14 - 9AM
+color: '#18775B', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 12, wordWrap: 'break-word'
+---
+// Task name
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// 15-01-2025
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// 9 PM
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Monday, Jan 16 - 9AM
+color: '#D43029', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 12, wordWrap: 'break-word'
+---
+// Task name
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// 15-01-2025
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// 9 PM
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Not set
+color: '#D49829', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 12, wordWrap: 'break-word'
+---
+// Task name
+color: '#151B26', fontSize: 14, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// 15-01-2025
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// 9 PM
+color: '#151B26', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 20, wordWrap: 'break-word'
+---
+// Not set
+color: '#D49829', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 12, wordWrap: 'break-word'
+---
+// 1 - 10 of 460
+color: 'white', fontSize: 12, fontFamily: 'Mona-Sans', fontWeight: '500', lineHeight: 18, wordWrap: 'break-word'
+---
+// Rows per page:
+color: '#6F7782', fontSize: 12, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 18, wordWrap: 'break-word'
+---
+// 10
+color: '#151B26', fontSize: 10, fontFamily: 'Mulish', fontWeight: '400', lineHeight: 14, wordWrap: 'break-word'

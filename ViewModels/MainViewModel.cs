@@ -211,6 +211,20 @@ namespace DesktopTaskAid.ViewModels
             set => SetProperty(ref _modalTitle, value);
         }
 
+        private bool _isSyncModalOpen;
+        public bool IsSyncModalOpen
+        {
+            get => _isSyncModalOpen;
+            set => SetProperty(ref _isSyncModalOpen, value);
+        }
+
+        private string _syncUrl;
+        public string SyncUrl
+        {
+            get => _syncUrl;
+            set => SetProperty(ref _syncUrl, value);
+        }
+
         #endregion
 
         #region Commands
@@ -228,6 +242,9 @@ namespace DesktopTaskAid.ViewModels
         public ICommand CloseModalCommand { get; }
         public ICommand PreviousPageCommand { get; }
         public ICommand NextPageCommand { get; }
+        public ICommand OpenSyncModalCommand { get; }
+        public ICommand CloseSyncModalCommand { get; }
+        public ICommand ImportSyncUrlCommand { get; }
 
         #endregion
 
@@ -281,6 +298,9 @@ namespace DesktopTaskAid.ViewModels
                 CloseModalCommand = new RelayCommand(_ => CloseModal());
                 PreviousPageCommand = new RelayCommand(_ => ChangePage(-1), _ => CurrentPage > 1);
                 NextPageCommand = new RelayCommand(_ => ChangePage(1), _ => CanGoNextPage());
+                OpenSyncModalCommand = new RelayCommand(_ => OpenSyncModal());
+                CloseSyncModalCommand = new RelayCommand(_ => CloseSyncModal());
+                ImportSyncUrlCommand = new RelayCommand(_ => ImportSyncUrl());
                 LoggingService.Log("Commands initialized");
 
                 // Setup timer
@@ -651,6 +671,32 @@ namespace DesktopTaskAid.ViewModels
         {
             IsModalOpen = false;
             EditingTask = null;
+        }
+
+        private void OpenSyncModal()
+        {
+            SyncUrl = string.Empty;
+            IsSyncModalOpen = true;
+        }
+
+        private void CloseSyncModal()
+        {
+            IsSyncModalOpen = false;
+            SyncUrl = string.Empty;
+        }
+
+        private void ImportSyncUrl()
+        {
+            if (string.IsNullOrWhiteSpace(SyncUrl))
+            {
+                MessageBox.Show("Please enter a calendar URL.", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // TODO: Implement calendar sync logic here
+            MessageBox.Show($"Calendar sync functionality will be implemented.\nURL: {SyncUrl}", "Sync Calendar", MessageBoxButton.OK, MessageBoxImage.Information);
+            
+            CloseSyncModal();
         }
 
         private void SaveState()
