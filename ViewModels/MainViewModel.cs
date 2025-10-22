@@ -218,6 +218,13 @@ namespace DesktopTaskAid.ViewModels
             set => SetProperty(ref _isSyncModalOpen, value);
         }
 
+        private bool _isCalendarUrlModalOpen;
+        public bool IsCalendarUrlModalOpen
+        {
+            get => _isCalendarUrlModalOpen;
+            set => SetProperty(ref _isCalendarUrlModalOpen, value);
+        }
+
         private string _syncUrl;
         public string SyncUrl
         {
@@ -244,6 +251,8 @@ namespace DesktopTaskAid.ViewModels
         public ICommand NextPageCommand { get; }
         public ICommand OpenSyncModalCommand { get; }
         public ICommand CloseSyncModalCommand { get; }
+        public ICommand OpenCalendarUrlModalCommand { get; }
+        public ICommand CloseCalendarUrlModalCommand { get; }
         public ICommand ImportSyncUrlCommand { get; }
 
         #endregion
@@ -300,6 +309,8 @@ namespace DesktopTaskAid.ViewModels
                 NextPageCommand = new RelayCommand(_ => ChangePage(1), _ => CanGoNextPage());
                 OpenSyncModalCommand = new RelayCommand(_ => OpenSyncModal());
                 CloseSyncModalCommand = new RelayCommand(_ => CloseSyncModal());
+                OpenCalendarUrlModalCommand = new RelayCommand(_ => OpenCalendarUrlModal());
+                CloseCalendarUrlModalCommand = new RelayCommand(_ => CloseCalendarUrlModal());
                 ImportSyncUrlCommand = new RelayCommand(_ => ImportSyncUrl());
                 LoggingService.Log("Commands initialized");
 
@@ -696,7 +707,19 @@ namespace DesktopTaskAid.ViewModels
             // TODO: Implement calendar sync logic here
             MessageBox.Show($"Calendar sync functionality will be implemented.\nURL: {SyncUrl}", "Sync Calendar", MessageBoxButton.OK, MessageBoxImage.Information);
             
-            CloseSyncModal();
+            CloseCalendarUrlModal();
+        }
+
+        private void OpenCalendarUrlModal()
+        {
+            SyncUrl = string.Empty;
+            IsCalendarUrlModalOpen = true;
+        }
+
+        private void CloseCalendarUrlModal()
+        {
+            IsCalendarUrlModalOpen = false;
+            SyncUrl = string.Empty;
         }
 
         private void SaveState()
